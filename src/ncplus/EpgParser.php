@@ -21,6 +21,7 @@ class EpgParser
     protected $errors = array();
     protected $curlObject = null;
 
+
     public function __construct($config = array()) {
         if ($config) {
             foreach ($config as $key => $value) {
@@ -148,6 +149,13 @@ class EpgParser
     public function setError($error) {
         $this->errors[] = $error;
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCurlInfo(){
+        return $this->curlInfo;
     }
 
     /**

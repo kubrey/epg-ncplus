@@ -1,6 +1,7 @@
 {
   "name": "kubrey/epg-ncplus",
   "description": "EPG parser of ncplus.pl",
+  "license":"MIT",
   "keywords": [
     "EPG",
     "ncplus",
@@ -21,5 +22,5 @@
       "ncplus": "src"
     }
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

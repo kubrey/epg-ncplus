@@ -81,7 +81,7 @@ class EpgParser
     protected function initCurl($url) {
         $this->resetCurl();
         $this->curlOptions = $this->userCurlOptions;
-        if (!$this->curlOptions) {
+        if (!$this->curlOptions || $this->curlOptions == $this->userCurlOptions) {
             $this->curlOptions[CURLOPT_USERAGENT] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36";
             $this->curlOptions[CURLOPT_TIMEOUT] = 60;
             $cookie = "epg_cookie.txt";
@@ -123,6 +123,7 @@ class EpgParser
         try {
             curl_setopt_array($this->curlObject, $this->curlOptions);
             $this->curlResult = curl_exec($this->curlObject);
+
             $this->curlError = curl_error($this->curlObject);
             $this->curlInfo = curl_getinfo($this->curlObject);
             curl_close($this->curlObject);

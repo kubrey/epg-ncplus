@@ -1,5 +1,6 @@
 .idea
 
 /src/test.php
+*cookie.txt
 
 /vendor/

@@ -233,7 +233,8 @@ class EpgParser
             return false;
         }
         if ($this->curlInfo['http_code'] != '200' || strpos($this->curlInfo['content_type'], 'application/json') === false) {
-            $this->setError("Http code is not OK or content is invalid " . $this->curlInfo['http_code'] . "/" . $this->curlInfo['content_type'] . " for url " . $url);
+            $proxyPart = (isset($this->curlOptions[CURLOPT_PROXY]) ? "; proxy: " . $this->curlOptions[CURLOPT_PROXY] : "");
+            $this->setError("Http code is not OK or content is invalid " . $this->curlInfo['http_code'] . "/" . $this->curlInfo['content_type'] . " for url " . $url . $proxyPart);
             return false;
         }
         return json_decode($this->curlResult);

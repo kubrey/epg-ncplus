@@ -221,7 +221,7 @@ class EpgParser
     public function getProgramInfo($id) {
         $url = $this->config['baseUrl'] . "program-tv?rm=ajax&id={$id}&v=5";
         $this->initCurl($url);
-        $this->setCurlOption(CURLOPT_HTTPHEADER, array('X-Requested-With: XMLHttpRequest'));
+        $this->setCurlOption(CURLOPT_HTTPHEADER, array("Content-Type: application/json; charset=utf-8"));
 
         $this->runCurl();
         if ($this->curlError) {
